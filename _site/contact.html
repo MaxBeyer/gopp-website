@@ -3,6 +3,16 @@
 
   <head>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125424174-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-125424174-1');
+    </script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -70,7 +80,7 @@
           <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
           <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
           <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-          <form name="sentMessage" id="contactForm" novalidate>
+          <form name="sentMessage" id="contactForm" method="POST" action="http://formspree.io/inflatableanchor@gmail.com" novalidate>
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <label>Name</label>
@@ -111,7 +121,7 @@
           <div class="col-lg-8 col-md-10 mx-auto">
             <ul class="list-inline text-center">
               <li class="list-inline-item">
-                <a href="https://www.youtube.com/channel/UC5Ij0InhhZJ8UDfxzgX6VTQ">
+                <a target="_blank" href="https://www.youtube.com/channel/UC5Ij0InhhZJ8UDfxzgX6VTQ">
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
@@ -119,7 +129,7 @@
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="https://www.instagram.com/gopuppetparty/">
+                <a target="_blank" href="https://www.instagram.com/gopuppetparty/">
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
@@ -127,7 +137,7 @@
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="https://www.facebook.com/GrandOldPuppetParty/">
+                <a target="_blank" href="https://www.facebook.com/GrandOldPuppetParty/">
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>

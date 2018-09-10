@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125424174-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125424174-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      gtag('config', 'UA-125424174-1');
-    </script>
+  gtag('config', 'UA-125424174-1');
+  </script>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <!-- jquery for auto updating youtube video -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-    <title>Grand Old Puppet Party</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <title>Grand Old Puppet Party</title>
 
-    <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/clean-blog.css" rel="stylesheet">
+  <!-- Custom fonts for this template -->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-  </head>
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.css" rel="stylesheet">
 
-  <body>
+</head>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="text-hide navbar-brand" href="index.html">
-          <img src="/img/gopp-brand.png" width=50px height=50px alt="">Grand Old Puppet Party</a>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="text-hide navbar-brand" href="index.html">
+        <img src="/img/gopp-brand.png" width=50px height=50px alt="">Grand Old Puppet Party</a>
         <button class="navbar-toggler navbar-toggler-right text-light" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -74,73 +77,101 @@
     <!-- Main Content -->
 
     <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <h2>Congressman Erik Paulsen</h2>
-            <img class="img-fluid rounded" src="/img/EP.jpg" alt="">
-          </div>
-          <div class="col-lg-6">
-            <p>Meet MN Congressman Erik Paulsen, an incumbent Republican whose district went to Clinton by 10 points, but who votes with Trump 98% of the time...and hasn't held a Town Hall since 2011. Often mistaken for bland, inanimate objects, Paulsen (along with his buddies Speaker Paul Ryan, Senator Mitch McConnell, and a chorus of old white Republicans) endeavor on zany misadventures as they navigate a hostile political landscape in the Trump era!  From disastrous health care to desperate NRA endorsements to hiding the president's taxes, this rag tag team of radicals learns a little bit about the Constitution, America, and dare we say, friendship?</p>
-            <p>What else would you need?</p>
-          </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <h2>Congressman Erik Paulsen</h2>
+          <img class="img-fluid rounded" src="/img/EP.jpg" alt="">
         </div>
+        <div class="col-lg-6">
+          <p>Meet MN Congressman Erik Paulsen, an incumbent Republican whose district went to Clinton by 10 points, but who votes with Trump 98% of the time...and hasn't held a Town Hall since 2011. Often mistaken for bland, inanimate objects, Paulsen (along with his buddies Speaker Paul Ryan, Senator Mitch McConnell, and a chorus of old white Republicans) endeavor on zany misadventures as they navigate a hostile political landscape in the Trump era!  From disastrous health care to desperate NRA endorsements to hiding the president's taxes, this rag tag team of radicals learns a little bit about the Constitution, America, and dare we say, friendship?</p>
+          <p>What else would you need?</p>
+        </div>
+      </div>
+      <hr>
     </div>
 
-    <hr>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <h1 id="video_title"><h1>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe id="youtube_video" width="600" height="340" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <p id="video_description"></p>
+            <script>
+            var channelID = "UC5Ij0InhhZJ8UDfxzgX6VTQ";
+            $.getJSON('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.youtube.com%2Ffeeds%2Fvideos.xml%3Fchannel_id%3D'+channelID, function(data) {
+              var link = data.items[0].link;
+              var id = link.substr(link.indexOf("=")+1);
+              var title = data.items[0].title;
+              $("#youtube_video").attr("src","https://youtube.com/embed/"+id + "?rel=0");
+              document.getElementById("video_title").innerHTML = `
+                Our Latest Video: <h2>${data.items[0].title}</h2>
+                `;
+            });
+            </script>
+        </div>
+      </div>
+      <hr>
+      <div class="container justify-content-center">
+          <div class="col-lg-12">
+            <h3 class="text-center">Check out our <a href="https://www.youtube.com/channel/UC5Ij0InhhZJ8UDfxzgX6VTQ" class="text-primary" target="_blank">YouTube Channel</a> for even more content!</h3>
+        </div>
+      </div>
+      <hr>
+    </div>
 
-      <div class="container">
-        <div class="embed-responsive embed-responsive-16by9">
+    <!-- <div class="container">
+      <div class="embed-responsive embed-responsive-16by9">
         <iframe src='https://www.sociablekit.com/app/embed/index.php?embed_id=13843' frameborder='0' width='100%' height='1000'></iframe>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a target="_blank" href="https://www.youtube.com/channel/UC5Ij0InhhZJ8UDfxzgX6VTQ">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a target="_blank" href="https://www.instagram.com/gopuppetparty/">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a target="_blank" href="https://www.facebook.com/GrandOldPuppetParty/">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-light">Copyright &copy; Max Beyer LLC</p>
         </div>
       </div>
     </div>
+  </footer>
 
-    <hr>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <ul class="list-inline text-center">
-              <li class="list-inline-item">
-                <a href="https://www.youtube.com/channel/UC5Ij0InhhZJ8UDfxzgX6VTQ">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.instagram.com/gopuppetparty/">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.facebook.com/GrandOldPuppetParty/">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-            </ul>
-            <p class="copyright text-light">Copyright &copy; Max Beyer LLC</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="js/clean-blog.min.js"></script>
-
-  </body>
+</body>
 
 </html>
